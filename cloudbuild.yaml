@@ -1,16 +1,16 @@
 steps:
-- name: 'gcr.io/cloud-builders/wp-docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/bitnami-docker-wordpress:1.0.$SHORT_SHA', '.']
+- name: 'gcr.io/spiredigital-222419/wp-docker'
+  args: ['build', '-t', 'gcr.io/spiredigital-222419/bitnami-docker-wordpress:1.0.$SHORT_SHA', '.']
   timeout: 180s
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/bitnami-docker-wordpress:1.0.$SHORT_SHA']
+- name: 'gcr.io/spiredigital-222419/docker'
+  args: ['push', 'gcr.io/spiredigital-222419/bitnami-docker-wordpress:1.0.$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - set
   - image
   - deployment
   - devblog-spiredigital-com-wordpress
-  - web=gcr.io/$PROJECT_ID/bitnami-docker-wordpress:1.0.$SHORT_SHA
+  - web=gcr.io/spiredigital-222419/bitnami-docker-wordpress:1.0.$SHORT_SHA
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=spiredigital-gke'
