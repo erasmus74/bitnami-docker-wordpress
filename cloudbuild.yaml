@@ -12,5 +12,5 @@ steps:
   - devblog-spiredigital-com-wordpress
   - web=gcr.io/spiredigital-222419/bitnami-docker-wordpress:1.0.$SHORT_SHA
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-west1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=spiredigital-gke'
